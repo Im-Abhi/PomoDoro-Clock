@@ -2,17 +2,17 @@ import React from 'react';
 
 export default function Length({title, changeTime, type, time}){
     return(
-        <div>
-            <h3>{title}</h3>
-            <div>
-                <button
+        <div className="length">
+            <p id={type==='Break'?"break-label":"session-label"}>{title}</p>
+            <div className="inc-dec">
+                <button id={type==='Break'?"break-increment":"session-increment"}
                     onClick={()=>changeTime(60, type)}
-                >&uarr;
+                ><i class="fa fa-2x fa-arrow-up" aria-hidden="true"></i>
                 </button>
                 <span>{(time/60)}</span>
-                <button
+                <button id={type==='Break'?"break-deccrement":"session-deccrement"}
                     onClick={()=>changeTime(-60, type)}
-                >&darr;
+                ><i class="fa fa-2x fa-arrow-down" aria-hidden="true"></i>
                 </button>
             </div>
         </div>

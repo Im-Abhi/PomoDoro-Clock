@@ -21,10 +21,10 @@ function App(){
   function changeTime(amount, type){
     if(!timerOn){
       if(type === 'Break'){
-        if(breakTime <=60 && amount<0) return;
+        if(breakTime <=60 && breakTime >=60 && amount<0) return;
         setBreakTime( prev => prev + amount);
       }else{
-        if(sessionTime <=60 && amount<0)  return;
+        if(sessionTime <=60 && sessionTime >= 60 && amount<0)  return;
         setSessionTime( prev => prev + amount);
         setDisplayTime(prev => prev + amount);
       }
@@ -67,24 +67,37 @@ function App(){
   }
   return (
     <div>
-      <Length 
-        title="Break Length"
-        changeTime={changeTime}
-        type="Break"
-        time={breakTime}
-        formatTime={formatTime}
-      />
-      <Length 
-        title="Session Length"
-        changeTime={changeTime}
-        type="Session"
-        time={sessionTime}
-        formatTime={formatTime}
-      />
-      <h1>{onBreak?"Break":"Session"}</h1>
-      <h1>{formatTime(displayTime)}</h1>
-      <button name="play-pause" onClick={controlTime}>play-pause</button>
-      <button name="reset" onClick={reset}>reset</button>
+      <div className="time-controls">
+        <Length 
+          title="Break Length"
+          changeTime={changeTime}
+          type="Break"
+          time={breakTime}
+          formatTime={formatTime}
+        />
+        <Length 
+          title="Session Length"
+          changeTime={changeTime}
+          type="Session"
+          time={sessionTime}
+          formatTime={formatTime}
+        />
+      </div>
+      <div className="current-session">
+        <p id="timer-label">{onBreak?"Break":"Session"}</p>
+        <h1 id="timer-left">{formatTime(displayTime)}</h1>
+      </div>
+        <div className="control-btns">
+          <button id="start_stop" name="play-pause" onClick={controlTime}>
+            <i class="fa fa-2x fa-play" aria-hidden="true"></i>
+          </button>
+          <button id="start_stop" name="play-pause" onClick={controlTime}>
+            <i class="fa fa-2x fa-pause" aria-hidden="true"></i>
+          </button>
+          <button id="reset" name="reset" onClick={reset}>
+            <i class="fa fa-2x fa-refresh" aria-hidden="true"></i>
+          </button>
+        </div>
     </div>
   )
 }
