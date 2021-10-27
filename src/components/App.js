@@ -66,7 +66,8 @@ function App(){
     },1000));
   }
   return (
-    <div>
+    <div id="container">
+      <h1 id="title">25 + 5 Clock</h1>
       <div className="time-controls">
         <Length 
           title="Break Length"

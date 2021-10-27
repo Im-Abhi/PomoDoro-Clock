@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Zen+Antique+Soft&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Zen+Antique+Soft&family=Merriweather:wght@300&display=swap');
+
 *{
     box-sizing:border-box;
     margin:0;
 }
-body{
+#title{
+    padding-bottom: 50px;
+    text-shadow: 2px 2px 5px black;
+    font-family: 'Merriweather', serif !important;
+}
+#root{
     font-family: 'Zen Antique Soft', serif;
     color:white;
     background-color:rgb(89, 21, 145);
@@ -13,8 +19,6 @@ body{
     height: 100vh;
     justify-content: center;
     align-items: center;
-}
-#root{
     button{
         color: white;
         background: none;
