@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Zen+Antique+Soft&display=swap');
+*{
+    box-sizing:border-box;
+    margin:0;
+}
+body{
+    font-family: 'Zen Antique Soft', serif;
+    color:white;
+    background-color:rgb(89, 21, 145);
+    font-size: 30px;
+    text-align:center;
+    display:flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+#root{
+    button{
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .length{
+        font-weight: lighter;
+        width:250px;
+        display:inline-block;
+        span{
+            font-family: 'Inconsolata', monospace;
+            padding: 0 10px;
+        }
+    }
+    .current-session{
+        margin: 20px auto 10px auto;
+        padding: 10px;
+        width: 270px;
+        border-radius: 50px;
+        border: 7px solid #9ce7bf;
+        text-shadow: 0px 0px 20px #00bf9f;
+        #timer-label{
+            padding: 10px;
+            font-size: 30px;
+        }
+        #timer-left{
+            font-family: 'Inconsolata', monospace;
+            font-size: 70px;
+        }
+    }
+}    
+
+@media screen and (max-width:500px) {
+    #root{
+        transform : scale(0.9);
+        .length{
+            padding: 10px 0;
+        }
+    }
+}
