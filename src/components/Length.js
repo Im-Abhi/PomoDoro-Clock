@@ -9,8 +9,8 @@ export default function Length({title, changeTime, type, time}){
                     onClick={()=>changeTime(60, type)}
                 ><i class="fa fa-2x fa-arrow-up" aria-hidden="true"></i>
                 </button>
-                <span>{(time/60)}</span>
-                <button id={type==='Break'?"break-deccrement":"session-deccrement"}
+                <span id={type==='Break'?"break-length":"session-length"}>{(time/60)}</span>
+                <button id={type==='Break'?"break-decrement":"session-decrement"}
                     onClick={()=>changeTime(-60, type)}
                 ><i class="fa fa-2x fa-arrow-down" aria-hidden="true"></i>
                 </button>
