@@ -6,7 +6,6 @@ function App() {
   const [breakTime, setBreakTime] = useState(5 * 60);
   const [sessionTime, setSessionTime] = useState(25 * 60);
   const [timerOn, setTimerOn] = useState(false);
-  const [onBreak, setOnBreak] = useState(false);
   const [intervalId, setIntervalId] = useState("");
   const [ curSession, setCurSession ] = useState('Session'); 
   const audioRef = useRef();
@@ -65,14 +64,12 @@ function App() {
         if (prev <= 0 && !breakSes) {
           setCurSession("Break");
           playBreakSound();
-          setOnBreak(true);
           breakSes = true;
           return breakTime;
         }
         else if (breakSes && prev <= 0) {
           setCurSession("Session");
           playBreakSound();
-          setOnBreak(false);
           breakSes = false;
           return sessionTime;
         }
@@ -100,7 +97,6 @@ function App() {
         />
       </div>
       <div className="current-session">
-       {/* <p id="timer-label">{onBreak === true ? "Break" : "Session"}</p>  */}
         <p id="timer-label">{curSession}</p>
         <h1 id="time-left">{formatTime(displayTime)}</h1>
       </div>
