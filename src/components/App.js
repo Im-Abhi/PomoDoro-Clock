@@ -34,8 +34,8 @@ function App() {
         if(sessionTime <=60 && amount<0)  return;
         if(sessionTime >= 3600 && amount>0) return;
         setSessionTime( prev => prev + amount);
-      }
         setDisplayTime(prev => prev + amount);
+      }
     }
   }
   function reset() {
