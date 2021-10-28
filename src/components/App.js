@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Length from './Length';
 
 function App(){
@@ -7,11 +7,15 @@ function App(){
   const [ sessionTime, setSessionTime ] = useState(25*60);
   const [ timerOn, setTimerOn ] = useState(false);
   const [ onBreak, setOnBreak ] = useState(false);
-  const [ intervalId,setIntervalId ] = useState('');
+  const [ intervalId, setIntervalId ] = useState('');
+  const audioRef = useRef();
   const playBreakSound = () => {
-    const audio = new Audio("https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav")
+    const audio = audioRef.current;
     audio.currentTime = 0;
     audio.play();
+    setTimeout(()=>{
+      audio.pause();
+    },2000);
   }
   function formatTime(time){
     const minutes = Math.floor(time/60);
@@ -98,6 +102,12 @@ function App(){
           <button id="reset" name="reset" onClick={reset}>
             <i class="fa fa-2x fa-refresh" aria-hidden="true"></i>
           </button>
+          <audio
+            id="beep"
+            preload="auto"
+            src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
+            ref={audioRef}
+          />
         </div>
     </div>
   )
