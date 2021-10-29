@@ -2,12 +2,20 @@ import React, { useState, useRef } from 'react';
 import Length from './Length';
 
 function App() {
+  const style1 = {
+    border: "7px solid #FF1C51",
+    color: "#FF1C51",
+    "text-shadow": "none"
+  }
+  const style2 = {
+    border: "7px solid #9ce7bf",
+  }
   const [displayTime, setDisplayTime] = useState(25 * 60);
   const [breakTime, setBreakTime] = useState(5 * 60);
   const [sessionTime, setSessionTime] = useState(25 * 60);
   const [timerOn, setTimerOn] = useState(false);
   const [intervalId, setIntervalId] = useState("");
-  const [ curSession, setCurSession ] = useState('Session'); 
+  const [curSession, setCurSession ] = useState('Session'); 
   const audioRef = useRef();
   const playBreakSound = () => {
     const audio = audioRef.current;
@@ -96,7 +104,7 @@ function App() {
           formatTime={formatTime}
         />
       </div>
-      <div className="current-session">
+      <div className="current-session" style={(displayTime<60?style1:style2)}>
         <p id="timer-label">{curSession}</p>
         <h1 id="time-left">{formatTime(displayTime)}</h1>
       </div>
