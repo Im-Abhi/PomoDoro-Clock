@@ -1,5 +1,6 @@
 # PomoDoro-Clock
 A React Project called PomoDoro-Clock ( 25+5 ).
+![msedge_zLHcVCD0uL](https://user-images.githubusercontent.com/86161191/140641779-47ee8f9f-8707-41a8-9112-0ff172cc5a44.png)
 
 ## About PomoDoro-Clock
 It has two different Session Time namely: 
